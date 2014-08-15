@@ -1,5 +1,7 @@
 package cn.sp.xm.core.service;
 
+import java.util.Calendar;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,7 @@ public class UserServiceTest {
 	public void testSave() throws Exception {
 		User user  = new User();
 		String operator = null;
-		user.setAccountName("ss");
+		user.setAccountName("ss"+Calendar.getInstance().getTimeInMillis());
 		user.setPassword("ss");
 		service.create(user,operator);
 		
