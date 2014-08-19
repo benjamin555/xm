@@ -68,6 +68,7 @@ function updateInfo(json) {
 function updateNode(node) {
 
 	$("#content").text(node.content);
+	$("#zan").text(node.zan);
 	$("#nodeId").val(node.id);
 	if (node.parentNode != null) {
 		$("#parentNodeId").val(node.parentNode.id);

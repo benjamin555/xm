@@ -7,7 +7,7 @@
   j2ee-spec="5.0"
   archive="xm Maven Webapp.war">
   <attributes>
-    <attribute name="webrootdir" value="src/main/webapp" />
+    <attribute name="webrootdir" value="target/xm" />
   </attributes>
 </project-module>
 

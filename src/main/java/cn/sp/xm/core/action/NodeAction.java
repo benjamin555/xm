@@ -96,7 +96,7 @@ public class NodeAction extends ActionSupport {
 	}
 
 	public String readNextSibling() {
-		logger.info("node:{]",node.toJsonString());
+		logger.info("node:{}",node.toJsonString());
 		Node n = nodeService.readNextSibling(node.getId(), null);
 		ServletResponse response = ServletActionContext.getResponse();
 		try {
@@ -114,7 +114,7 @@ public class NodeAction extends ActionSupport {
 	}
 
 	public String readPrevSibling() {
-
+		logger.info("node:{}",node.toJsonString());
 		Node n = nodeService.readPrevSibling(node.getId(), null);
 		ServletResponse response = ServletActionContext.getResponse();
 		try {

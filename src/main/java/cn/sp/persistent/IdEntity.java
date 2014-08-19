@@ -1,10 +1,10 @@
 package cn.sp.persistent;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  * 统一定义id的entity基类.
@@ -18,10 +18,10 @@ import org.hibernate.annotations.GenericGenerator;
 @MappedSuperclass
 public abstract class IdEntity<T> {
 	@Id
-	@GeneratedValue(generator = "system-uuid")
-	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", nullable = false, unique = true, length = 12)
 	protected T id;
-
+	
 	public T getId() {
 		return id;
 	}

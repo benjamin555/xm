@@ -67,22 +67,27 @@ public class NodeDaoImpl extends HibernateDao<Node, String> implements NodeDao {
 
 	public Node findNextSibling(String id, boolean b) {
 		Node n = this.getById(id);
-		String pId = n.getParentNode().getId();
+		Node parentNode = n.getParentNode();
+		if (parentNode==null) {
+			//不存在上级节点的情况下，直接返回自身
+			return n;
+			
+		}
+		String pId = parentNode.getId();
 		String hql = "select n from Node n  where n.parentNode.id =:pId and n.id <>:id and n.isUse='Y'  ";
 		Map<String, Object> values = new HashMap<String, Object>();
 		values.put("pId", pId);
 		values.put("id", n.getId());
 		values.put("zan", n.getZan());
-		values.put("createTime", n.getCreateTime());
 		Map<String, String> orderMap = new LinkedHashMap<String, String>();
 		if (b) {
 			orderMap.put("sort_n_zan", "desc");
 			orderMap.put("sort_n_createTime", "desc");
-			hql += " and n.zan<=:zan and n.createTime<=:createTime ";
+			hql += " and n.zan<=:zan ";
 		} else {
 			orderMap.put("sort_n_zan", "asc");
 			orderMap.put("sort_n_createTime", "asc");
-			hql += " and n.zan>=:zan and n.createTime>=:createTime ";
+			hql += " and n.zan>=:zan  ";
 		}
 		String append = HqlUtil.buildHqlAppend(orderMap, values);
 		hql += append;
