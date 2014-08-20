@@ -23,7 +23,8 @@
 	<s:hidden id="nodeId" value="%{node.id}"></s:hidden>
 	<s:hidden id="parentNodeId" value="%{node.parentNode.id}"></s:hidden>
 	<div class="container">
-		
+		<a href="<%=basePath%>miyu/riddle!input.action"
+				class="btn btn-default btn-lg " role="button">riddle</a>
 		<div class="jumbotron">
 			<div align="center" style="margin-bottom: 20px;">
 				<ul class="nav nav-pills nav-stacked" role="tablist">
