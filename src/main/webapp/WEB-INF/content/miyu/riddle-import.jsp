@@ -16,36 +16,20 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <%@include file="/common/bootstrap-header.jsp"%>
-<script type="text/javascript" src="<%=basePath%>js/app/miyu/riddle-detail.js"></script>
-<link rel="stylesheet" href="<%=basePath%>css/app/miyu/riddle.css">
-
+<script type="text/javascript"
+	src="<%=basePath%>js/app/miyu/riddle-detail.js"></script>
 </head>
 <body>
 	<input type="hidden" value="<%=basePath%>" id="basePath">
 	<div class="container">
 		<div class="jumbotron">
-			<h1><span class="label label-success">恭喜你答对啦</span></h1>
-			<br/>
-			<label >谜面</label> 
-			<p class="descr">
-			
-				<s:property value="riddle.question" />
-			</p>
-			<label >谜底</label> 
-			<p class="descr" >
-			
-				<s:property value="riddle.answer" />
-			</p>
-			<p>share it</p>
-			</br>
-			
-			<div class="btn-group">
-			<a href="<%=basePath%>miyu/riddle!show.action"
-				class="btn btn-info " role="button">再来一条</a>
-			<a href="<%=basePath%>miyu/riddle!input.action"
-				class="btn btn-default " role="button">自己建一条</a>
-			</div>
-			
+			<form role="form" action="<%=basePath%>miyu/riddle!importExcel.action"  method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="exampleInputFile">File input</label> <input name="dataExcel" type="file"
+						id="exampleInputFile" / >
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
 		</div>
 	</div>
 </body>

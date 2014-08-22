@@ -16,37 +16,41 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <%@include file="/common/bootstrap-header.jsp"%>
-<script type="text/javascript" src="<%=basePath%>js/app/miyu/riddle-detail.js"></script>
+<script type="text/javascript"
+	src="<%=basePath%>js/app/miyu/riddle.js"></script>
 <link rel="stylesheet" href="<%=basePath%>css/app/miyu/riddle.css">
-
 </head>
 <body>
 	<input type="hidden" value="<%=basePath%>" id="basePath">
+	<input type="hidden" value="0" id="helpCount">
 	<div class="container">
 		<div class="jumbotron">
-			<h1><span class="label label-success">恭喜你答对啦</span></h1>
-			<br/>
-			<label >谜面</label> 
-			<p class="descr">
-			
-				<s:property value="riddle.question" />
-			</p>
-			<label >谜底</label> 
-			<p class="descr" >
-			
-				<s:property value="riddle.answer" />
-			</p>
-			<p>share it</p>
-			</br>
-			
-			<div class="btn-group">
-			<a href="<%=basePath%>miyu/riddle!show.action"
-				class="btn btn-info " role="button">再来一条</a>
-			<a href="<%=basePath%>miyu/riddle!input.action"
-				class="btn btn-default " role="button">自己建一条</a>
+			<h1>灯谜</h1>
+			<div id="msgDiv">
+			<s:iterator value="%{actionMessages}" var="msg">
+				
+				<div class="msg label-warning" style=""><s:property value="msg" />
+				</div>
+			</s:iterator>
+			</div>
+			<div>
+				<p class="descr">
+					您的分数是：<s:property value="score" />
+					</br>
+					<s:property value="comment" />
+				</p>
 			</div>
 			
+			<div class="btn-group">
+				<a href="#" class="btn btn-default "
+					role="button">分享</a>
+				<a href="<%=basePath%>miyu/riddle!challenge.action" class="btn btn-default "
+					role="button">重新开始挑战</a>
+			</div>
+			</br>
 		</div>
 	</div>
 </body>
 </html>
+<script type="text/javascript" >
+</script>

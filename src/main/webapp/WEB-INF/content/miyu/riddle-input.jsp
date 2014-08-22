@@ -9,7 +9,7 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>My JSP 'read.jsp' starting page</title>
+<title>tttttt</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -23,11 +23,11 @@
 		<div class="jumbotron">
 			<form role="form" action="<%=basePath%>miyu/riddle!save.action" method="post">
 				<div class="form-group">
-					<label for="question">谜题</label> 
+					<label for="question">谜面</label> 
 					<textarea placeholder="请输入..." required rows="7"  class="form-control" name="question" ></textarea>
 				</div>
 				<div class="form-group">
-					<label for="answer">答案</label> <input required  name="answer"
+					<label for="answer">谜底</label> <input required  name="answer"
 						type="text" class="form-control" id="answer" placeholder="请输入..."
 						>
 				</div>

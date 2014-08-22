@@ -3,12 +3,14 @@ package cn.sp.web.utils;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.slf4j.Logger;
@@ -77,6 +79,12 @@ public class ServletUtils {
 	public static void writeJsonToPage(ServletResponse response, Object object) throws IOException {
 		response.setContentType("text/json;charset=UTF-8");
 		response.getWriter().write(JSONObject.fromObject(object).toString());
+		
+	}
+	
+	public static void writeJsonToPage(ServletResponse response, Collection<?> c) throws IOException {
+		response.setContentType("text/json;charset=UTF-8");
+		response.getWriter().write(JSONArray.fromObject(c).toString());
 		
 	}
 
